@@ -5,7 +5,7 @@
 - [x] babelrc配置
 - [x] 支持scss
 - [x] 支持next-router
-- [x] 支持redux redux-saga
+- [x] 支持redux redux-thunk
 - [x] 支持图片格式文件
 - [x] 支持gzip
 

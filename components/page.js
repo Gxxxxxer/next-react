@@ -5,7 +5,9 @@ import AddCount from './add-count'
 import Clock from './clock'
 
 function Page({ error, lastUpdate, light, linkTo, placeholderData, title }) {
+
     return (
+
         <div>
             <h1>
                 {title}

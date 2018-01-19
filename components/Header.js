@@ -11,11 +11,11 @@ const Header = () => (
         <Link href="/about">
             <a style={linkStyle}>About</a>
         </Link>
-        <Link href="/reduxTest">
-            <a style={linkStyle}>reduxTest</a>
+        <Link href="/redux">
+            <a style={linkStyle}>redux</a>
         </Link>
-        <Link href="/other">
-            <a style={linkStyle}>other</a>
+        <Link href="/post">
+            <a style={linkStyle}>post</a>
         </Link>
     </div>
 )

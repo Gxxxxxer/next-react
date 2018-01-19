@@ -1,3 +1,4 @@
+import 'isomorphic-fetch'
 export const actionTypes = {
     FAILURE: 'FAILURE',
     INCREMENT: 'INCREMENT',
@@ -39,4 +40,16 @@ export function tickClock(isServer) {
         light: !isServer,
         ts: Date.now()
     }
+}
+
+export const FETCH = () => async (dispatch,getState) => {
+    try{
+        const res = await fetch('https://jsonplaceholder.typicode.com/users')
+        const data = await res.json()
+        await dispatch(loadDataSuccess(data))
+
+    }catch(error){
+        console.log(error)
+    }
+
 }
