@@ -23,15 +23,10 @@ app.prepare()
             renderAndCache(req, res, '/')
         })
 
-        server.get('/search', (req, res) => {
-            return app.render(req, res, '/search', req.query)
+        server.get('/post', (req, res) => {
+            return app.render(req, res, '/post', req.query)
         })
-
-        //server.get('/book/:id', (req, res) => {
-        //    const queryParams = { id: req.params.id }
-        //    renderAndCache(req, res, '/book', queryParams)
-        //})
-
+        
         server.get('*', (req, res) => {
             return handle(req, res)
         })

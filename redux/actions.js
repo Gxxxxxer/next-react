@@ -1,4 +1,5 @@
 import 'isomorphic-fetch'
+import {createAction} from 'redux-actions'
 export const actionTypes = {
     FAILURE: 'FAILURE',
     INCREMENT: 'INCREMENT',
@@ -8,35 +9,15 @@ export const actionTypes = {
     TICK_CLOCK: 'TICK_CLOCK'
 }
 
-export function failure(error) {
-    return {
-        type: actionTypes.FAILURE,
-        error
-    }
-}
-
-export function increment() {
-    return { type: actionTypes.INCREMENT }
-}
-
-export function loadData() {
-    return { type: actionTypes.LOAD_DATA }
-}
-
-export function loadDataSuccess(data) {
-    return {
-        type: actionTypes.LOAD_DATA_SUCCESS,
-        data
-    }
-}
-
-export function startClock() {
-    return { type: actionTypes.START_CLOCK }
-}
+export const failure = createAction(actionTypes.FAILURE)
+export const increment = createAction(actionTypes.INCREMENT)
+export const loadData = createAction(actionTypes.LOAD_DATA)
+export const loadDataSuccess = createAction(actionTypes.LOAD_DATA_SUCCESS)
+export const startClock = createAction(actionTypes.START_CLOCK)
 
 export function tickClock(isServer) {
     return {
-        type: actionTypes.TICK_CLOCK,
+        type: actionTypes.payload.TICK_CLOCK,
         light: !isServer,
         ts: Date.now()
     }

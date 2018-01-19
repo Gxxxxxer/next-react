@@ -1,5 +1,4 @@
-import { actionTypes } from './actions'
-
+import {handleActions} from 'redux-actions'
 export const exampleInitialState = {
     count: 0,
     error: false,
@@ -7,36 +6,32 @@ export const exampleInitialState = {
     light: false,
     placeholderData: null
 }
-
-function reducer(state = exampleInitialState, action) {
-    switch (action.type) {
-        case actionTypes.FAILURE:
-            return {
-                ...state,
-                ...{ error: action.error }
-            }
-
-        case actionTypes.INCREMENT:
-            return {
-                ...state,
-                ...{ count: state.count + 1 }
-            }
-
-        case actionTypes.LOAD_DATA_SUCCESS:
-            return {
-                ...state,
-                ...{ placeholderData: action.data }
-            }
-
-        case actionTypes.TICK_CLOCK:
-            return {
-                ...state,
-                ...{ lastUpdate: action.ts, light: !!action.light }
-            }
-
-        default:
-            return state
+const reducer = handleActions({
+    'FAILURE' (state, action){
+        return {
+            ...state,
+            ...{ error: action.payload }
+        }
+    },
+    'LOAD_DATA_SUCCESS' (state, action){
+        console.log(action)
+        return {
+            ...state,
+            ...{ placeholderData: action.payload }
+        }
+    },
+    'INCREMENT' (state, action){
+        return {
+            ...state,
+            ...{ count: state.count + 1 }
+        }
+    },
+    'TICK_CLOCK' (state, action){
+        return {
+            ...state,
+            ...{ lastUpdate: action.payload.ts, light: !!action.payload.light }
+        }
     }
-}
+},exampleInitialState)
 
 export default reducer
